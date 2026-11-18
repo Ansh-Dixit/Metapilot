@@ -1,0 +1,75 @@
+/* MetaPilot theme: Dark Chocolate / Aloewood / Milk Tea / Sakura / Misty Rose + vintage ticket motif */
+:root, .gradio-container, .dark {
+  --choc:#443025; --aloe:#7F5836; --milk:#AA7F66; --sakura:#EC9C9D; --sakura-d:#E4898B; --rose:#F5CFCC;
+  --cream:#FBF4EC; --paper:#FFFAF4;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  color-scheme: light;
+  /* Gradio variables */
+  --body-background-fill:var(--cream); --background-fill-primary:var(--paper); --background-fill-secondary:var(--cream);
+  --block-background-fill:var(--paper); --block-border-color:rgba(68,48,37,.22); --block-border-width:1.5px;
+  --block-radius:16px; --block-shadow:none; --block-label-background-fill:var(--rose); --block-label-text-color:var(--choc);
+  --block-title-text-color:var(--choc); --body-text-color:var(--choc); --body-text-color-subdued:var(--aloe);
+  --border-color-primary:rgba(68,48,37,.22); --color-accent:var(--sakura); --color-accent-soft:var(--rose);
+  --input-background-fill:#fff; --input-border-color:rgba(68,48,37,.3); --input-radius:12px; --input-shadow:none;
+  --input-border-color-focus:var(--sakura); --input-shadow-focus:0 0 0 3px rgba(236,156,157,.35);
+  --button-primary-background-fill:var(--sakura); --button-primary-background-fill-hover:var(--sakura-d);
+  --button-primary-text-color:var(--choc); --button-primary-border-color:var(--choc);
+  --button-secondary-background-fill:var(--rose); --button-secondary-background-fill-hover:#F0BDB9;
+  --button-secondary-text-color:var(--choc); --button-secondary-border-color:var(--choc);
+  --button-large-radius:999px; --button-small-radius:999px; --slider-color:var(--sakura);
+  --table-even-background-fill:var(--paper); --table-odd-background-fill:var(--cream);
+  --table-border-color:rgba(68,48,37,.15); --table-row-focus:var(--rose);
+  --font:var(--serif); --font-mono:ui-monospace,Menlo,monospace;
+}
+body, .gradio-container { background:var(--cream)!important; font-family:var(--serif)!important; color:var(--choc); }
+.gradio-container { max-width:1040px!important; margin:0 auto!important; }
+footer { display:none!important; }
+h1,h2,h3 { font-family:var(--serif); color:var(--choc); letter-spacing:.2px; }
+button.primary, .gr-button-primary { border:2px solid var(--choc)!important; font-weight:700!important; font-family:var(--serif)!important;
+  box-shadow:0 3px 0 var(--choc)!important; transition:transform .08s, box-shadow .08s; }
+button.primary:active { transform:translateY(2px); box-shadow:0 1px 0 var(--choc)!important; }
+button.secondary { border:1.5px solid var(--choc)!important; font-family:var(--serif)!important; }
+.tab-nav button, button[role=tab] { font-family:var(--serif)!important; font-size:1.05rem; color:var(--aloe); }
+button[role=tab][aria-selected=true] { color:var(--choc)!important; border-color:var(--sakura)!important; font-weight:700; }
+.dropzone, .upload-container, [data-testid=file-upload] { border:2px dashed var(--milk)!important; background:var(--paper)!important; border-radius:16px!important; }
+.prose, .md { color:var(--choc); }
+thead th, table th { background:var(--rose)!important; color:var(--choc)!important; font-family:var(--serif); }
+
+/* ---------- ribbon header ---------- */
+.mp-hero { text-align:center; padding:26px 0 8px; }
+.mp-ribbon { display:inline-block; background:var(--choc); color:var(--sakura); font-family:var(--serif); font-size:2.1rem; letter-spacing:2px;
+  padding:10px 54px; clip-path:polygon(0 0,100% 0,calc(100% - 22px) 50%,100% 100%,0 100%,22px 50%); }
+.mp-tag { color:var(--aloe); margin:10px 0 0; font-size:1.05rem; }
+
+/* ---------- steps ---------- */
+.mp-step { display:flex; align-items:center; gap:12px; margin:22px 0 8px; }
+.mp-step .n { width:34px; height:34px; border-radius:50%; background:var(--sakura); border:2px solid var(--choc); color:var(--choc);
+  display:grid; place-items:center; font-weight:700; font-family:var(--serif); flex:none; }
+.mp-step .t { font-size:1.25rem; font-weight:700; color:var(--choc); }
+.mp-step .h { color:var(--aloe); font-size:.95rem; margin-left:2px; }
+
+/* ---------- ticket cards ---------- */
+.mp-tickets { display:grid; gap:18px; margin:10px 0; }
+.mp-ticket { position:relative; display:grid; grid-template-columns:1fr 118px; background:var(--paper); border:2px solid var(--choc);
+  border-radius:14px; filter:drop-shadow(0 4px 0 rgba(68,48,37,.14)); }
+.mp-ticket::before,.mp-ticket::after { content:""; position:absolute; left:calc(100% - 118px - 11px); width:22px; height:22px; border-radius:50%;
+  background:var(--cream); border:2px solid var(--choc); z-index:2; }
+.mp-ticket::before { top:-12px; clip-path:inset(50% 0 0 0); }
+.mp-ticket::after { bottom:-12px; clip-path:inset(0 0 50% 0); }
+.mp-body { padding:16px 22px 16px; }
+.mp-title { font-size:1.45rem; font-weight:700; color:var(--choc); line-height:1.15; }
+.mp-fam { display:inline-block; margin-top:6px; padding:2px 12px; border-radius:999px; background:var(--rose); color:var(--choc); font-size:.85rem; border:1.5px solid var(--milk); }
+.mp-why { margin:10px 0 0; padding-left:18px; color:var(--aloe); font-size:.98rem; line-height:1.45; }
+.mp-stub { border-left:2px dashed var(--choc); background:var(--sakura); border-radius:0 12px 12px 0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; padding:10px 6px; color:var(--choc); }
+.mp-stub .no { font-size:2rem; font-weight:700; line-height:1; }
+.mp-stub .lbl { writing-mode:vertical-rl; transform:rotate(180deg); letter-spacing:3px; font-size:.78rem; font-weight:700; }
+.mp-ticket.alt .mp-stub { background:var(--rose); }
+.mp-ticket.small .mp-title { font-size:1.15rem; }
+.mp-ticket.small .mp-stub { gap:2px; padding:8px 6px; }
+.mp-ticket.small .mp-stub .no { font-size:1.5rem; }
+.mp-ticket.small .mp-stub .lbl { writing-mode:horizontal-tb; transform:none; letter-spacing:1.5px; font-size:.68rem; }
+.mp-ticket, .mp-ticket * { box-sizing:border-box; }
+.mp-note { background:var(--rose); border:1.5px dashed var(--milk); border-radius:14px; padding:12px 16px; color:var(--choc); font-size:.95rem; line-height:1.45; }
+.mp-note b { color:var(--aloe); }
+.mp-chip { display:inline-block; margin:4px 6px 0 0; padding:4px 12px; border-radius:999px; background:var(--paper); border:1.5px solid var(--milk); color:var(--choc); font-size:.9rem; }
+@media (max-width:640px){ .mp-ticket{grid-template-columns:1fr 84px;} .mp-ticket::before,.mp-ticket::after{left:calc(100% - 84px - 11px);} .mp-ribbon{font-size:1.5rem;padding:8px 34px;} }

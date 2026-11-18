@@ -1,0 +1,67 @@
+mode: full
+seed: 42
+seeds: [42, 43, 44]
+paths:
+  raw: data/raw
+  tasks: data/tasks_full
+  meta: data/meta_full
+  results: results_full
+  logs: logs
+n_jobs: 1   # per shard; parallelism comes from running ~9 shards (cores - 1)
+data:
+  sklearn_parents: [iris, wine, breast_cancer, digits]
+  synthetic_classification:
+    n_parents: 24
+    n_samples: [100, 2000]
+    n_features: [4, 150]
+    informative_frac: [0.2, 0.8]
+    class_sep: [0.5, 2.0]
+    flip_y: [0.0, 0.15]
+    n_classes: [2, 5]
+  synthetic_shapes:
+    n_parents: 6
+    kinds: [moons, circles]
+    n_samples: [200, 1500]
+    noise: [0.05, 0.4]
+  openml:
+    enabled: true
+    suite_id: 99
+    target_downloads: 165
+    target_parents: 150
+    cache_dir: data/raw/openml_cache
+    max_rows: 50000
+    max_features: 2000   # OVERRIDE (budget): SPEC allowed wider; >2000 skipped
+    download_timeout_sec: 180
+augmentation:
+  n_subsamples: 6   # OVERRIDE (budget): SPEC says 10
+  row_frac: [0.3, 1.0]
+  col_frac: [0.5, 1.0]
+  min_class_count: 6
+preprocessing:
+  row_cap: 1000   # OVERRIDE (budget)
+  high_card_threshold: 20
+cv:
+  n_folds: 3
+  scoring: accuracy
+  fit_timeout_sec: 30   # OVERRIDE (budget)
+  fit_timeout_wide_sec: 30
+meta:
+  landmarker_rows: 200
+  landmarker_folds: 2
+splits:
+  n_folds: 5
+  file: data/meta_full/folds.json
+metamodels:
+  knn_k: 5
+  lgbm:
+    n_estimators: 300
+    learning_rate: 0.05
+    num_leaves: 15
+  relevance_levels: 10
+evaluation:
+  bootstrap_resamples: 2000
+  hit_tolerance_pts: 0.5
+  ks: [1, 2, 3, 5, 10]
+  seeds: [42, 43, 44]
+use_tabpfn: false
+

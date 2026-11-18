@@ -1,0 +1,83 @@
+
+# ==============================
+# Python cache files
+# ==============================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ==============================
+# Virtual environments
+# ==============================
+.venv/
+venv/
+env/
+
+# ==============================
+# Testing and coverage
+# ==============================
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ==============================
+# Environment variables and secrets
+# ==============================
+.env
+.env.*
+!.env.example
+
+# ==============================
+# Logs
+# ==============================
+logs/
+*.log
+
+# ==============================
+# Datasets - DO NOT UPLOAD
+# ==============================
+data/
+
+# ==============================
+# Experiment results
+# ==============================
+results/
+results_dry_run/
+results_full/
+results_pilot/
+
+# ==============================
+# Model weights and checkpoints
+# Keep models/ Python source code
+# ==============================
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.keras
+*.onnx
+*.safetensors
+*.pkl
+*.joblib
+
+# ==============================
+# Jupyter Notebook checkpoints
+# ==============================
+.ipynb_checkpoints/
+
+# ==============================
+# Operating system files
+# ==============================
+.DS_Store
+Thumbs.db
+
+# ==============================
+# IDE files
+# ==============================
+.vscode/
+.idea/
+
+# ==============================
+# Archive files
+# ==============================
+phase2_bundle.zip

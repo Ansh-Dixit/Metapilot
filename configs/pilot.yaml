@@ -1,0 +1,56 @@
+mode: pilot
+seed: 42
+paths:
+  raw: data/raw
+  tasks: data/tasks
+  meta: data/meta
+  results: results
+  logs: logs
+n_jobs: -1
+data:
+  sklearn_parents: [iris, wine, breast_cancer, digits]
+  synthetic_classification:
+    n_parents: 20
+    n_samples: [60, 800]
+    n_features: [2, 150]
+    informative_frac: [0.2, 0.8]
+    class_sep: [0.5, 2.0]
+    flip_y: [0.0, 0.15]
+    n_classes: [2, 5]
+  synthetic_shapes:
+    n_parents: 6
+    kinds: [moons, circles]
+    n_samples: [120, 600]
+    noise: [0.05, 0.4]
+  openml:
+    enabled: false
+    suite_id: 99
+augmentation:
+  n_subsamples: 4
+  row_frac: [0.3, 1.0]
+  col_frac: [0.5, 1.0]
+  min_class_count: 6
+preprocessing:
+  row_cap: 800
+  high_card_threshold: 20
+cv:
+  n_folds: 3
+  scoring: accuracy
+  fit_timeout_sec: 60
+meta:
+  landmarker_rows: 200
+  landmarker_folds: 2
+splits:
+  n_folds: 5
+  file: data/meta/folds.json
+metamodels:
+  knn_k: 5
+  lgbm:
+    n_estimators: 300
+    learning_rate: 0.05
+    num_leaves: 15
+  relevance_levels: 10
+evaluation:
+  bootstrap_resamples: 2000
+  hit_tolerance_pts: 0.5
+  ks: [1, 2, 3, 5, 10]
